@@ -1,0 +1,23 @@
+<h1 class="text-center">My Messages</h1>
+
+<!-- Link to send a new message -->
+<a href="/students/messages/send" class="btn btn-primary mb-3 d-block text-center">Send New Message</a>
+
+<!-- Main container to display messages -->
+<div class="container mt-4">
+    <!-- List group to display all messages -->
+    <ul class="list-group">
+        <!-- Loop through each message from the messages array -->
+        <% messages.forEach(message=> { %>
+            <li class="list-group-item">
+                <!-- Display sender's ID (you could replace this with a name if you have it) -->
+                <strong>From:</strong>
+                <%= message.sender_id %><br>
+
+                    <!-- Display the message text -->
+                    <strong>Message:</strong>
+                    <%= message.message_text %>
+            </li>
+            <% }) %>
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+commit e178f3dc72f7807d967c40231077bcfa01f86923
+Author: Caolan McCallion <caolanmccallion@Caolans-MacBook-Pro.local>
+Date:   2025-03-30T23:44:12+01:00
+
+    Initial commit - setup project structure and DB connection
+
+2	0	.gitignore
+25	0	config/db.js
+27	0	index.js
+1142	0	package-lock.json
+18	0	package.json
+
+commit 004a8daa1b2451e009f31ea1693d05054ab3d0bf
+Author: 40449210 <cmccallion23@qub.ac.uk>
+Date:   2025-03-30T22:45:00+00:00
+
+    Initial commit
+
+93	0	README.md

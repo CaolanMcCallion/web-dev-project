@@ -1,0 +1,18 @@
+<!-- Header -->
+<div class="container mt-5">
+  <h1 class="mb-3">Welcome, <%= username %>!</h1>
+  <p>This is your dashboard.</p>
+
+  <!-- Admin navigation links -->
+  <div class="d-grid gap-2 col-6 col-md-4 mx-auto mb-4">
+    <a href="/admin/students" class="btn btn-primary">Manage Students</a>
+    <a href="/admin/modules" class="btn btn-primary">Manage Modules</a>
+    <a href="/admin/grades" class="btn btn-primary">View Grades</a>
+    <a href="/admin/progression" class="btn btn-primary mb-3">Progression Summary</a> <!-- Added margin bottom 3 so the upload csv and send message are seperate from the student data buttons-->
+    <a href="/admin/students/upload" class="btn btn-secondary">Upload CSV</a>
+    <a href="/admin/messages/send" class="btn btn-secondary">Send New Message</a>
+  </div>
+
+  <!-- Logout -->
+  <a href="/logout" class="btn btn-outline-danger">Logout</a>
+</div>

@@ -1,0 +1,15 @@
+<!-- Header -->
+<div class="container mt-5">
+  <h1 class="mb-3">Welcome, <%= student.first_name %> <%= student.last_name %>!</h1>
+  <p>This is your student dashboard.</p>
+
+  <!-- Student navigation links -->
+  <div class="d-grid gap-2 col-6 col-md-4 mx-auto mb-4">
+    <a href="/students/profile" class="btn btn-primary">My Profile</a>
+    <a href="/students/progression" class="btn btn-primary">My Progression Stats</a>
+    <a href="/students/messages" class="btn btn-primary">My Messages</a>
+  </div>
+
+  <!-- Logout -->
+  <a href="/logout" class="btn btn-outline-danger">Logout</a>
+</div>

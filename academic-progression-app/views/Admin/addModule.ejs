@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Add New Module</title>
+</head>
+
+<!-- Link to return to dashboard -->
+<a href="/admin/dashboard" style="display: inline-block; margin-bottom: 10px;">Back to Dashboard</a>
+
+
+<body>
+  <h1>Add a New Module</h1>
+
+  <!-- Form to submit the new module data -->
+  <form action="/admin/modules/add" method="POST">
+
+    <!-- Text input for subject code (e.g. IFSY, BSAS) -->
+    <label>Subject Code:</label><br>
+    <input type="text" name="subj_code" required><br><br>
+
+    <!-- Text input for catalog number (e.g. 123, 204) -->
+    <label>Catalog Number:</label><br>
+    <input type="text" name="catalog_number" required><br><br>
+
+    <!-- Text input for the module title (e.g. Programming I) -->
+    <label>Title:</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <!-- Number input for credit count (e.g. 20, 40) -->
+    <label>Credit Count:</label><br>
+    <input type="number" name="credit_count" required><br><br>
+
+    <!-- Dropdown to choose the semester -->
+    <label>Semester:</label><br>
+    <select name="semester" required>
+      <option value="AUT">Autumn</option>
+      <option value="SPR">Spring</option>
+      <option value="FYR">Full Year</option>
+    </select><br><br>
+
+    <!-- Submit button -->
+    <button type="submit">Add Module</button>
+  </form>
+
+  <!-- Links back to the module list -->
+  <br>
+  <a href="/admin/modules">← Back to Module List</a>
+</body>
+
+</html>

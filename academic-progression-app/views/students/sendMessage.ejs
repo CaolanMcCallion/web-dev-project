@@ -1,0 +1,31 @@
+<h1 class="text-center">Send Message</h1>
+
+<!-- Main container to hold the message sending form -->
+<div class="container mt-4">
+    <!-- Form for sending a new message -->
+    <form action="/students/messages/send" method="POST">
+
+        <!-- Dropdown to select the recipient of the message -->
+        <div class="form-group">
+            <label for="recipient_id">Recipient</label>
+            <select class="form-control" id="recipient_id" name="recipient_id" required>
+                <!-- Loop through each student for the dropdown -->
+                <% students.forEach(student=> { %>
+                    <option value="<%= student.student_id %>">
+                        <%= student.first_name %>
+                            <%= student.last_name %>
+                    </option>
+                    <% }) %>
+            </select>
+        </div>
+
+        <!-- Text box to write the message -->
+        <div class="form-group mt-3">
+            <label for="message_text">Message</label>
+            <textarea class="form-control" id="message_text" name="message_text" rows="4" required></textarea>
+        </div>
+
+        <!-- Submit button to send the message -->
+        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+    </form>
+</div>

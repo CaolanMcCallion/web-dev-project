@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Edit Grade</title>
+</head>
+
+<body>
+  <h1>Edit Grade</h1>
+
+  <!-- Form to submit the updated grade -->
+  <form action="/admin/grades/edit/<%= grade.id %>" method="POST">
+
+    <!-- Dropdown to select the student; preselects the current student to avoid accidental edits -->
+    <label for="student_id">Student:</label><br>
+    <select name="student_id" required>
+      <% students.forEach(student=> { %>
+        <!-- Marks the current student as selected -->
+        <option value="<%= student.student_id %>" <%=student.student_id===grade.student_id ? 'selected' : '' %>>
+          <%= student.student_id %> - <%= student.first_name %>
+              <%= student.last_name %>
+        </option>
+        <% }) %>
+    </select><br><br>
+
+    <!-- Dropdown to select the module; preselects the current module -->
+    <label for="module_id">Module:</label><br>
+    <select name="module_id" required>
+      <% modules.forEach(module=> { %>
+        <!-- Marks the current module as selected -->
+        <option value="<%= module.module_id %>" <%=module.module_id===grade.module_id ? 'selected' : '' %>>
+          <%= module.title %> (<%= module.subj_code %>
+              <%= module.catalog_number %>)
+        </option>
+        <% }) %>
+    </select><br><br>
+
+    <!-- Input for the first grade, pre-filled with current value -->
+    <label>Grade:</label><br>
+    <input type="number" name="grade" value="<%= grade.first_grade %>" required><br><br>
+
+    <!-- Input for the resit grade, pre-filled if one exists -->
+    <label>Resit Grade:</label><br>
+    <input type="number" name="resit_grade" value="<%= grade.resit_grade || '' %>"><br><br>
+
+    <!-- Input for the grade result text -->
+    <label>Grade Result:</label><br>
+    <input type="text" name="grade_result" value="<%= grade.grade_result || '' %>"><br><br>
+
+    <!-- Input for the resit result text -->
+    <label>Resit Result:</label><br>
+    <input type="text" name="resit_result" value="<%= grade.resit_result || '' %>"><br><br>
+
+    <!-- Submit button -->
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <!-- Link to go back to the grade list -->
+  <br>
+  <a href="/admin/grades">← Back to Grade List</a>
+</body>
+
+</html>

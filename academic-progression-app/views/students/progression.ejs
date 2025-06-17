@@ -1,0 +1,49 @@
+<a href="/logout" class="btn btn-outline-danger mb-3">Logout</a>
+
+<div class="container mt-4">
+    <h1 class="mb-4">My Progression Status</h1>
+
+    <div class="row">
+        <!-- Progression Stats Section (filling top half of the page) -->
+        <div class="col-md-12">
+            <p style="font-size: 1.25rem;"><strong>Name:</strong>
+                <%= student.first_name %>
+                    <%= student.last_name %>
+            </p>
+            <p style="font-size: 1.25rem;"><strong>Student ID:</strong>
+                <%= student.student_id %>
+            </p>
+            <p style="font-size: 1.25rem;"><strong>Total Credits:</strong>
+                <%= student.total_credits %>
+            </p>
+            <p style="font-size: 1.25rem;"><strong>Average Grade:</strong>
+                <%= student.average_grade %>
+            </p>
+            <p style="font-size: 1.25rem;"><strong>Progression Status:</strong>
+                <span
+                    class="badge <%= student.progression_status === 'Eligible for Progression' ? 'bg-success' : 'bg-danger' %>">
+                    <%= student.progression_status %>
+                </span>
+            </p>
+            <a href="/students/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- My Grades Section (smaller ) -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3 class="h5">My Grades</h3>
+            <ul class="list-group">
+                <% grades.forEach(grade=> { %>
+                    <li class="list-group-item">
+                        <%= grade.module_title %>:
+                            <%= grade.first_grade %>
+                                <% if (grade.resit_grade) { %>
+                                    <span class="badge bg-warning">Resit: <%= grade.resit_grade %></span>
+                                    <% } %>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>

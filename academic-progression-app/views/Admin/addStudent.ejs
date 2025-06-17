@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Student</title>
+</head>
+
+<!-- Link to return to dashboard -->
+<a href="/admin/dashboard" style="display: inline-block; margin-bottom: 10px;">Back to Dashboard</a>
+
+<body>
+    <!-- Header for the page -->
+    <h1>Add New Student</h1>
+
+    <!-- Form to submit a new student record -->
+    <form action="/admin/students/add" method="POST">
+
+        <!-- Text input for student ID -->
+        <label>Student ID:</label><br>
+        <input type="text" name="student_id" required><br><br>
+
+        <!-- Text input for first name -->
+        <label>First Name:</label><br>
+        <input type="text" name="first_name" required><br><br>
+
+        <!-- Text input for last name -->
+        <label>Last Name:</label><br>
+        <input type="text" name="last_name" required><br><br>
+
+        <!-- Text input for entry level (e.g. L1, L2) -->
+        <label>Entry Level:</label><br>
+        <input type="text" name="entry_level" required><br><br>
+
+        <!-- Text input for study status (e.g., F for Full-time, P for Part-time) -->
+        <label>Status of Study:</label><br>
+        <input type="text" name="status_study" required><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Add Student</button>
+    </form>
+</body>
+
+</html>

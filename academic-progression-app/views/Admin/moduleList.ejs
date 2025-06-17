@@ -1,0 +1,45 @@
+<!-- Link to return to dashboard -->
+<a href="/admin/dashboard" class="btn btn-secondary mb-3" style="display: inline-block;">Back to Dashboard</a>
+
+<div class="container mt-4">
+  <h1 class="mb-4">All Modules</h1>
+
+  <!-- Table that displays all module records -->
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <!-- Table headers -->
+      <tr>
+        <th>Subject Code</th>
+        <th>Catalog Number</th>
+        <th>Title</th>
+        <th>Credit Count</th>
+        <th>Semester</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through each module and display its data in a row -->
+      <% modules.forEach(module=> { %>
+        <tr>
+          <td>
+            <%= module.subj_code %>
+          </td>
+          <td>
+            <%= module.catalog_number %>
+          </td>
+          <td>
+            <%= module.title %>
+          </td>
+          <td>
+            <%= module.credit_count %>
+          </td>
+          <td>
+            <%= module.semester %>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
+  <!-- Link to the form to add a new module -->
+  <a href="/admin/modules/add" class="btn btn-success mt-3">➕ Add New Module</a>
+</div>

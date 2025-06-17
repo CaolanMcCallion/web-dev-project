@@ -1,0 +1,77 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<!-- Student Profile Page Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Academic Progression</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/students/dashboard"><i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                    Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/students/progression"><i class="fas fa-chart-line"
+                        style="font-size: 1.5rem;"></i> Progression Stats</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/students/messages"><i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                    Messaging</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt" style="font-size: 1.5rem;"></i>
+                    Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Profile Page -->
+<a href="/logout" class="btn btn-outline-danger mb-3">Logout</a>
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">My Profile</h1>
+
+    <!-- Personal Information Section -->
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Personal Information</h3>
+            <!-- Ensure the image exists or fallback to default -->
+            <img src="<%= student.profile_image || '/images/default-profile.png' %>"
+                class="img-fluid mb-3 rounded-circle" alt="Profile Picture" />
+            <p><strong>Name:</strong>
+                <%= student.first_name %>
+                    <%= student.last_name %>
+            </p>
+            <p><strong>Student ID:</strong>
+                <%= student.student_id %>
+            </p>
+            <p><strong>Email:</strong>
+                <%= student.email || 'Not Provided' %>
+            </p>
+            <p><a href="/students/edit-profile" class="btn btn-primary">Edit Profile</a></p>
+        </div>
+
+        <!-- Grades Section -->
+        <div class="col-md-8">
+            <h3>My Grades</h3>
+            <ul class="list-group">
+                <% grades.forEach(grade=> { %>
+                    <li class="list-group-item">
+                        <strong>
+                            <%= grade.module_title %>:
+                        </strong>
+                        <%= grade.first_grade ? grade.first_grade : 'N/A' %>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Add Chart.js for the bar chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

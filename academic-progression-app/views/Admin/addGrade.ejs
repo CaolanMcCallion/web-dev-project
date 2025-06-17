@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Grade</title>
+</head>
+
+<body>
+    <h1>Add a new Grade</h1>
+
+    <!-- Form to submit a new grade -->
+    <form action="/admin/grades/add" method="POST">
+
+        <!-- Dropdown to select a student -->
+        <label for="student_id">Student:</label><br>
+        <select name="student_id" required>
+            <% students.forEach(student=> { %>
+                <option value="<%= student.student_id %>">
+                    <%= student.student_id %> - <%= student.first_name %>
+                            <%= student.last_name %>
+                </option>
+                <% }) %>
+        </select><br><br>
+
+        <!-- Dropdown to select a module -->
+        <label for="module_id">Module:</label><br>
+        <select name="module_id" required>
+            <% modules.forEach(module=> { %>
+                <option value="<%= module.module_id %>">
+                    <%= module.title %> (<%= module.subj_code %>
+                            <%= module.catalog_number %>)
+                </option>
+                <% }) %>
+        </select><br><br>
+
+        <!-- Number input for grade -->
+        <label>Grade:</label><br>
+        <input type="number" name="grade" required><br><br>
+
+        <!-- Number input for resit grade -->
+        <label>Resit Grade:</label><br>
+        <input type="number" name="resit_grade"><br><br>
+
+        <!-- Text input for grade result (e.g., Pass, Fail) -->
+        <label>Grade Result:</label><br>
+        <input type="text" name="grade_result"><br><br>
+
+        <!-- Text input for resit result -->
+        <label>Resit Result:</label><br>
+        <input type="text" name="resit_result"><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Add Grade</button>
+    </form>
+
+    <!-- Navigation links -->
+    <br>
+    <a href="/admin/grades">← Back to Grade List</a><br>
+    <a href="/admin/dashboard">← Back to Dashboard</a>
+</body>
+
+</html>

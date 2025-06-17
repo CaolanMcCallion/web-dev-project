@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Student</title>
+</head>
+
+<!-- Link to return to dashboard -->
+<a href="/admin/dashboard" style="display: inline-block; margin-bottom: 10px;">Back to Dashboard</a>
+
+<body>
+    <!-- Header that shows which student is being edited -->
+    <h1>Edit Student: <%= student.student_id %>
+    </h1>
+    <!-- Form to update student record -->
+    <form action="/admin/students/edit/<%= student.student_id %>" method="POST">
+
+        <!-- Input for last name, pre-filled with current first name value -->
+        <label>First Name:</label><br>
+        <input type="text" name="first_name" value="<%= student.first_name %>" required><br><br>
+
+        <!-- Input for last name, pre-filled with current last name value -->
+        <label>Last Name:</label><br>
+        <input type="text" name="last_name" value="<%= student.last_name %>" required><br><br>
+
+        <!-- Input for entry level (e.g. L1), pre-filled with current entry level value -->
+        <label>Entry Level:</label><br>
+        <input type="text" name="entry_level" value="<%= student.entry_level %>" required><br><br>
+
+        <!-- Input for study status (e.g. F), pre-filled with current study status value -->
+        <label>Status of Study:</label><br>
+        <input type="text" name="status_study" value="<%= student.status_study %>" required><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+
+</html>

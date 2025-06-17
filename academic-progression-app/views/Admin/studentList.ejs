@@ -1,0 +1,62 @@
+<!-- Link to return to dashboard -->
+<a href="/admin/dashboard" class="btn btn-secondary mb-3" style="display: inline-block;">Back to Dashboard</a>
+
+<div class="container mt-4">
+    <h1 class="mb-4">All Students</h1>
+
+    <!-- Link to the add new student form -->
+    <a href="/admin/students/add" class="btn btn-success mb-3">➕ Add New Student</a>
+
+    <!-- Table to display all student records -->
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <!-- Table headers define the column titles -->
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Entry Level</th>
+                <th>Status of Study</th>
+                <th>Actions</th> <!-- Column for Edit/Delete buttons -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each student in the array passed from the backend -->
+            <% students.forEach(student=> { %>
+                <tr>
+                    <!-- Print student details in each table cell -->
+                    <td>
+                        <%= student.student_id %>
+                    </td>
+                    <td>
+                        <%= student.first_name %>
+                    </td>
+                    <td>
+                        <%= student.last_name %>
+                    </td>
+                    <td>
+                        <%= student.entry_level %>
+                    </td>
+                    <td>
+                        <%= student.status_study %>
+                    </td>
+                    <td>
+                        <!-- Edit link goes to the edit form for the selected student -->
+                        <a href="/admin/students/edit/<%= student.student_id %>" class="btn btn-sm btn-warning">Edit</a>
+                        |
+
+                        <!-- Form for deleting a student. It uses POST to send the request securely -->
+                        <form action="/admin/students/delete/<%= student.student_id %>" method="POST"
+                            style="display:inline;">
+                            <!-- Confirm dialog before submitting the delete -->
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this student?');">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</div>
